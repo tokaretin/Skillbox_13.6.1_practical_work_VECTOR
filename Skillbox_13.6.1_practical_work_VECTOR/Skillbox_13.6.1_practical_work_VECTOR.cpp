@@ -54,7 +54,7 @@ int main()
     std::cout << "Enter the item you want to delete: ";
     int deletElement;
     std::cin >> deletElement;
-
+    /*
     // Удаляем все элементы равные заданному значению
     for (int i = vec.size() - 1; i >= 0; i--)
     {
@@ -66,6 +66,22 @@ int main()
             // второй вариант
             vec[i] = vec.back(); // Заменяем текущий элемент последним элементом вектора
             vec.pop_back(); // Удаляем последний элемент с помощью pop_back()
+        }
+    }
+    std::cout << '\n';
+    */
+
+    // Удаляем все элементы равные заданному значению
+    for (int i = 0; i < vec.size(); i++)
+    {
+        if (vec[i] == deletElement)
+        {
+            for (int j = i + 1; j < vec.size(); j++)
+            {
+                vec[j - 1] = vec[j]; // Скопировать элементы на 1 позицию влево
+            }
+            vec.pop_back(); // Удаляем последний элемент с помощью pop_back()
+            i--; // Уменьшить индекс i, чтобы проверить скопированный элемент на следующей позиции
         }
     }
     std::cout << '\n';
